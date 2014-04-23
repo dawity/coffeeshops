@@ -1,15 +1,10 @@
 class HomeController < ApplicationController
     def index
+        # BEGIN Simple but working search capabliy added by Dawit Haile
         if params[:search].present?
-          @ganjalocs = Ganjaloc.near(params[:search], 10).order("created_at DESC")
-        if @ganjalocs.present?
-        @ganjalocs
+            @ganjalocs = Ganjaloc.near(params[:search], 10).order("created_at DESC")
+            @ganjalocs if @ganjalocs.present?
         
-        end  
-           
-           
-           
-                  
         else
           @ganjalocs = Ganjaloc.all
         end
