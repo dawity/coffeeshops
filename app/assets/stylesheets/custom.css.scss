@@ -1,0 +1,214 @@
+
+/* Added by Dawit Haile*/
+
+/*--------Beggin importing bootsrap-----------*/
+
+@import "bootstrap";
+
+
+/* Added by Dawit Haile*/
+
+/*--------Beggin importing bootsrap-----------*/
+
+.container-fluid{
+ background-color: #9eed1e;
+    border-color: #449e3d;
+color: #fff;
+font-family: "Krona One";
+}
+
+$colHighlight   : #4c956f;
+$bgDefault      : #e74c3c;
+$bgHighlight    : #c0392b;
+$colDefault     : #f607c1;
+$colHover       : #4c956f;
+
+
+
+
+*{ font-family: "Krona One", Arial, serif; }
+
+/*-----custome Google map style----------*/
+
+
+
+
+/* --- Custome Style for Ganjamap --- */
+div.form-group{width: 500px;}
+
+/*-------------------------search button on the navigation--------------------------------------*/
+.btn-ganja {
+background: colHighlight;
+border-color: #155827;
+}
+
+.btn-ganja:hover {
+background: #2b8454;
+border-color: #229456;
+}
+
+/*-------------------------font awesome and etc--------------------------------------*/
+
+.table{border-collapse: collapse;
+}
+
+
+
+
+
+
+
+.pagination {
+.disabled {
+display: none;
+}
+
+background: white;
+cursor: default;
+height: 22px;
+a, span, em {
+padding: 0.2em 0.5em;
+display: block;
+float: left;
+margin-right: 1px;
+}
+.disabled {
+color: #999999;
+border: 1px solid #dddddd;
+}
+.current {
+font-style: normal;
+font-weight: bold;
+background: #40bf4c;
+color: #21953d;
+border: 1px solid #40bf4c;
+}
+a{
+text-decoration: none;
+color: #40bf4c;
+border: 1px solid #6ae275;
+&:hover, &:focus {
+color: #000033;
+border-color: #000033;
+}
+}
+.page_info {
+background: #40bf4c;
+color: white;
+padding: 0.4em 0.6em;
+width: 22em;
+margin-bottom: 0.3em;
+text-align: center;
+b{
+color: #000033;
+background: #40bf4c + 60;
+padding: 0.1em 0.25em;
+}
+}
+}
+#map{
+
+background-color: #DAE8EC;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border: 2px solid #B8CB99;
+padding: 10px;
+}
+
+
+
+
+
+*{ font-family: "Krona One", Arial, serif; }
+
+/*-----custome Google map style----------*/
+
+
+
+
+/* --- Custome Style for Ganjamap --- */
+div.form-group{width: 500px;}
+
+/*-------------------------search button on the navigation--------------------------------------*/
+.btn-ganja {
+  background: #a5fd07;
+      border-color: #155827;
+}
+
+.btn-ganja:hover {
+  background: #2b8454;
+      border-color: #229456;
+}
+
+/*-------------------------font awesome and etc--------------------------------------*/
+
+.table{border-collapse: collapse;
+}
+
+
+
+
+
+
+
+.pagination {
+  .disabled {
+    display: none;
+  }
+
+  background: white;
+  cursor: default;
+  height: 22px;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: #999999;
+        border: 1px solid #dddddd;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #40bf4c;
+        color: #21953d;
+        border: 1px solid #40bf4c;
+  }
+  a{
+    text-decoration: none;
+    color: #40bf4c;
+        border: 1px solid #6ae275;
+    &:hover, &:focus {
+        color: #000033;
+            border-color: #000033;
+  }
+}
+.page_info {
+  background: #40bf4c;
+      color: white;
+  padding: 0.4em 0.6em;
+  width: 22em;
+  margin-bottom: 0.3em;
+  text-align: center;
+  b{
+    color: #000033;
+        background: #40bf4c + 60;
+        padding: 0.1em 0.25em;
+  }
+}
+}
+#map{
+
+background-color: #DAE8EC;
+    border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border: 2px solid #B8CB99;
+padding: 10px;
+}
+
+
+

@@ -1,0 +1,33 @@
+<%= bootstrap_form_for(@ganjaloc) do |f| %>
+  <% if @ganjaloc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ganjaloc.errors.count, "error") %> prohibited this ganjaloc from being saved:</h2>
+
+      <ul>
+      <% @ganjaloc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  
+    <%= f.text_field :latitude %>
+ 
+  
+   
+    <%= f.text_field :longitude %>
+  
+    
+    <%= f.text_field :address %>
+ 
+    
+    <%= f.text_field :description %>
+  
+    
+    <%= f.text_field :title %>
+  
+    <%= f.submit %>
+ 
+<% end %>

@@ -1,0 +1,47 @@
+
+ <%= form_for(@ganjaloc) do |f| %>
+  <% if @ganjaloc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ganjaloc.errors.count, "error") %> prohibited this ganjaloc from being saved:</h2>
+
+      <ul>
+      <% @ganjaloc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="row">
+  <div class="col-md-4">.col-md-2 </div>
+  <div class="col-md-8">
+  
+  
+
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>  
+  </div>
+  <div class="col-md-4">.col-md-2</div>
+</div>

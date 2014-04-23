@@ -1,0 +1,25 @@
+class Ganjaloc < ActiveRecord::Base
+geocoded_by :address
+after_validation :geocode, :if => :address_changed?
+validates_presence_of :title, :address
+validates :address, uniqueness: true
+
+def search(params[:search])
+       if params[:search].present?
+          @ganjalocs = Ganjaloc.near(params[:search], 10).order("created_at DESC")
+          
+        
+        else
+          @ganjalocs = Ganjaloc.all
+        end
+
+end 
+
+
+
+
+
+end
+
+
+

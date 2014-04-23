@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: ganjalocs
+#
+#  id          :integer          not null, primary key
+#  latitude    :float
+#  longitude   :float
+#  address     :string(255)
+#  description :string(255)
+#  title       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitude: 1.5
+  longitude: 1.5
+  address: MyString
+  description: MyString
+  title: MyString
+
+two:
+  latitude: 1.5
+  longitude: 1.5
+  address: MyString
+  description: MyString
+  title: MyString

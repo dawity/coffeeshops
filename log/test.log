@@ -1,0 +1,553 @@
+  [1m[36m (140.7ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (152.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (144.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (166.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (179.0ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (145.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (177.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (166.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-04 02:07:43', '2014-04-04 02:07:43', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-04 02:07:43', '2014-04-04 02:07:43', 298486374)[0m
+  [1m[35m (136.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+GanjalocsControllerTest: test_should_create_ganjaloc
+----------------------------------------------------
+  [1m[35mGanjaloc Load (0.7ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+Processing by GanjalocsController#create as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"MyString", "description"=>"MyString", "latitude"=>"1.5", "longitude"=>"1.5", "title"=>"MyString"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mGanjaloc Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "ganjalocs" WHERE "ganjalocs"."address" = 'MyString' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered ganjalocs/_form.html.erb (48.3ms)
+  Rendered ganjalocs/new.html.erb within layouts/application (73.5ms)
+Completed 200 OK in 30972ms (Views: 30544.3ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+GanjalocsControllerTest: test_should_destroy_ganjaloc
+-----------------------------------------------------
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+Processing by GanjalocsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "ganjalocs" WHERE "ganjalocs"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+GanjalocsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered ganjalocs/_form.html.erb (13.2ms)
+Completed 200 OK in 51ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------
+GanjalocsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mGanjaloc Load (0.6ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#index as HTML
+  [1m[35mGanjaloc Load (1.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.7ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 4 OFFSET 0
+Completed 200 OK in 55ms (Views: 32.2ms | ActiveRecord: 2.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+GanjalocsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#new as HTML
+  Rendered ganjalocs/_form.html.erb (10.9ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+GanjalocsControllerTest: test_should_show_ganjaloc
+--------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+GanjalocsControllerTest: test_should_update_ganjaloc
+----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#update as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"MyString", "description"=>"MyString", "latitude"=>"1.5", "longitude"=>"1.5", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mGanjaloc Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "ganjalocs" WHERE ("ganjalocs"."address" = 'MyString' AND "ganjalocs"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered ganjalocs/_form.html.erb (13.2ms)
+Completed 200 OK in 40ms (Views: 22.0ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  begin transaction
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  [1m[36mGanjaloc Load (0.7ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs"[0m
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (129.5ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (168.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (176.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (140.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (143.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (143.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140416205916')[0m
+  [1m[35m (145.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140416194156')
+  [1m[36m (155.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (147.1ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (165.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (176.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (149.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (177.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (199.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140416205916')[0m
+  [1m[35m (169.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140416194156')
+  [1m[36m (177.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:36', '2014-04-17 00:04:36', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:36', '2014-04-17 00:04:36', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:36', '2014-04-17 00:04:36', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:36', '2014-04-17 00:04:36', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:36', '2014-04-17 00:04:36', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:04:37', '2014-04-17 00:04:37', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36m (140.4ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (154.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (166.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (163.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (155.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (144.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140416205916')[0m
+  [1m[35m (155.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140416194156')
+  [1m[36m (144.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.9ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2014-04-17 00:12:38', '2014-04-17 00:12:38', 298486374)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36m (165.5ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (142.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (166.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (163.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (155.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (166.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140416205916')[0m
+  [1m[35m (144.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140416194156')
+  [1m[36m (144.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (145.7ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (165.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (199.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (163.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (177.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (177.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140416205916')[0m
+  [1m[35m (166.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140416194156')
+  [1m[36m (144.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$bRUcO5iE85cnN5a9spw82uLnhXrMOjZ/zQse2BEOYIvk6qR0rDkK.', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 980190962)[0m
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$bRUcO5iE85cnN5a9spw82uLnhXrMOjZ/zQse2BEOYIvk6qR0rDkK.', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "ganjalocs"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$/IXDLTi4JWVQ2kAcyh5kUuYljsx0dlXDHKJo.1lffk6wxdRtt8D4K', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 980190962)
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$/IXDLTi4JWVQ2kAcyh5kUuYljsx0dlXDHKJo.1lffk6wxdRtt8D4K', '2014-04-17 00:36:23', '2014-04-17 00:36:23', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$uhnVCu8p4Nvgpi3cjRNg5OR17OjivO/PwXwu6x5bblWMh.JeLBqQK', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)[0m
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$uhnVCu8p4Nvgpi3cjRNg5OR17OjivO/PwXwu6x5bblWMh.JeLBqQK', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "ganjalocs"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$AhxJPBwbEbHGMZS0G3z7vuuLZI6LawtPModlW2UPblF6hEXoPqwjW', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$AhxJPBwbEbHGMZS0G3z7vuuLZI6LawtPModlW2UPblF6hEXoPqwjW', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$J33um/McQV0IS0XXmUmnPOyTphA91mwln/W0YVlZbhiGEB1lWUioG', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)[0m
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$J33um/McQV0IS0XXmUmnPOyTphA91mwln/W0YVlZbhiGEB1lWUioG', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "ganjalocs"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$0a7eBJlYyie9p.xVDScbXeuZ1zIpne4FLAZhHAEaf.8Z.xb4SpHDK', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$0a7eBJlYyie9p.xVDScbXeuZ1zIpne4FLAZhHAEaf.8Z.xb4SpHDK', '2014-04-17 00:36:24', '2014-04-17 00:36:24', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$eIA.0LpT1HMosIArj526l.t816LmhhPd4OhdQgK8w2lDfFRpomA7q', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)[0m
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$eIA.0LpT1HMosIArj526l.t816LmhhPd4OhdQgK8w2lDfFRpomA7q', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "ganjalocs"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$1pdXfw0vcRXqkcMjCq/.fe7oh6uBOkzkv3g7c7Wz7DVGUDTffyZaK', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$1pdXfw0vcRXqkcMjCq/.fe7oh6uBOkzkv3g7c7Wz7DVGUDTffyZaK', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$ThsntRQgJhcczoJQuRuIbuHbA38/FWl.gqXrrQ1avuJ6SZCZbBIbK', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)[0m
+SQLite3::SQLException: table users has no column named password_digest: INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at", "id") VALUES ('dawit', '$2a$10$ThsntRQgJhcczoJQuRuIbuHbA38/FWl.gqXrrQ1avuJ6SZCZbBIbK', '2014-04-17 00:36:25', '2014-04-17 00:36:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (175.9ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (203.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "password_digest" varchar(255)) 
+  [1m[36m (155.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (152.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (165.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (166.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140417004249')[0m
+  [1m[35m (167.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140130044325')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "ganjalocs"
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-18 23:29:40', '2014-04-18 23:29:40', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-18 23:29:40', '2014-04-18 23:29:40', 298486374)
+  [1m[36m (137.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------------
+GanjalocsControllerTest: test_should_create_ganjaloc
+----------------------------------------------------
+  [1m[36mGanjaloc Load (0.6ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+Processing by GanjalocsController#create as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"MyString", "description"=>"MyString", "latitude"=>"1.5", "longitude"=>"1.5", "title"=>"MyString"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mGanjaloc Exists (0.5ms)[0m  SELECT 1 AS one FROM "ganjalocs" WHERE "ganjalocs"."address" = 'MyString' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered ganjalocs/_form.html.erb (60.8ms)
+  Rendered ganjalocs/new.html.erb within layouts/application (100.4ms)
+Completed 200 OK in 39080ms (Views: 38621.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+-----------------------------------------------------
+GanjalocsControllerTest: test_should_destroy_ganjaloc
+-----------------------------------------------------
+  [1m[36mGanjaloc Load (0.6ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+Processing by GanjalocsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.4ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "ganjalocs" WHERE "ganjalocs"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/ganjalocs
+Completed 302 Found in 14ms (ActiveRecord: 2.1ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+GanjalocsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[35mGanjaloc Load (0.5ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered ganjalocs/_form.html.erb (12.6ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+GanjalocsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#index as HTML
+  [1m[36mGanjaloc Load (0.5ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs"[0m
+  Rendered ganjalocs/_nav_for_ganjaloc (5.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36mGanjaloc Load (0.5ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" LIMIT 4 OFFSET 0[0m
+  Rendered ganjalocs/_table_for_ganjaloc.html.erb (16.0ms)
+Completed 200 OK in 119ms (Views: 100.6ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+GanjalocsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[35mGanjaloc Load (0.5ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#new as HTML
+  Rendered ganjalocs/_form.html.erb (13.1ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+GanjalocsControllerTest: test_should_show_ganjaloc
+--------------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.2ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+GanjalocsControllerTest: test_should_update_ganjaloc
+----------------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#update as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"MyString", "description"=>"MyString", "latitude"=>"1.5", "longitude"=>"1.5", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.2ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mGanjaloc Exists (0.3ms)[0m  SELECT 1 AS one FROM "ganjalocs" WHERE ("ganjalocs"."address" = 'MyString' AND "ganjalocs"."id" != 980190962) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered ganjalocs/_form.html.erb (13.4ms)
+Completed 200 OK in 33ms (Views: 20.5ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  [1m[35mGanjaloc Load (0.7ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered home/_nav_for_home.html.erb (4.5ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 10 OFFSET 0
+  Rendered home/_table_for_home.html.erb (4.9ms)
+Completed 200 OK in 28ms (Views: 21.7ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
