@@ -30,7 +30,7 @@ class GanjalocsController < ApplicationController
   # GET /ganjalocs/1
   # GET /ganjalocs/1.json
   def show
-  @ganjalocs.all
+  @ganjalocs=Ganjaloc.all
   end
 
   # GET /ganjalocs/new

@@ -6,11 +6,7 @@
 @import "bootstrap";
  
  
- 
- body {
-background: #fcb902;
-color: #ee3e3e;
-}
+
  
  
  

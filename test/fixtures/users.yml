@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Dawit
+  email: dawityhaile@gmail.com
+
+
+two:
+  name: Nayak
+  email: nayak@yahoo.com

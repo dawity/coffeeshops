@@ -20,5 +20,6 @@ class HomeController < ApplicationController
     def show
         @ganjalocs.all
     end
+    
 end
 
