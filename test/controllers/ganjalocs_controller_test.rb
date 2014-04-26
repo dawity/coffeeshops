@@ -1,13 +1,8 @@
 require 'test_helper'
 
 class GanjalocsControllerTest < ActionController::TestCase
-  setup :initialize_ganjaloc
- 
-  # called after every single test
-  def teardown
-    @ganjaloc = nil
-  end
-  
+  setup do
+    @ganjaloc = ganjalocs(:one)
     @update = {
 
       address: '5359 East Valley Boulevard, Los Angeles, California, United States',
@@ -60,13 +55,5 @@ class GanjalocsControllerTest < ActionController::TestCase
 
     assert_redirected_to ganjalocs_path
   end
-
-
-
-
-  private
- 
-    def initialize_ganjaloc
-      @ganjaloc = ganjalocs(:one)
-    end
+  
 end

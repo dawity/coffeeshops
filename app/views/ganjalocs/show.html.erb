@@ -1,14 +1,27 @@
 
+<p id="notice"><%= notice %></p>
 
-<h3>Nearby Locations</h3>
-<ul>
-<% for location in @ganjaloc.nearbys(10) %>
-  <li><%= link_to ganjaloc.address, ganjaloc %> (<%= ganjaloc.distance.round(2) %> miles)</li>
-<% end %>
-</ul>
+<p>
+  <strong>Latitude:</strong>
+  <%= @ganjaloc.latitude %>
+</p>
 
+<p>
+  <strong>Longitude:</strong>
+  <%= @ganjaloc.longitude %>
+</p>
 
+<p>
+  <strong>Addressl:</strong>
+  <%= @ganjaloc.address %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ganjaloc.title %>
+</p>
 
 
 <%= link_to 'Edit', edit_ganjaloc_path(@ganjaloc) %> |
 <%= link_to 'Back', ganjalocs_path %>
+
