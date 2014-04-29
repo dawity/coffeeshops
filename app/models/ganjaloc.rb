@@ -19,12 +19,6 @@ validates_presence_of :title, :address
 validates :address, uniqueness: true
 
 
- 
-
-
-
-
-
 end
 
 

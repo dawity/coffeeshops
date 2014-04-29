@@ -7,32 +7,13 @@
 
 
 
-
-
-
-  
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%= render "nav_for_ganjaloc" %>
+
+
+
+
 <a class="btn btn-danger" href="#">
   <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-
-
-
 
 
 
@@ -47,12 +28,12 @@
   <span class="input-group-addon">.00</span>
 </div>
 <div class="container-fluid">
-<div class="row">
-  <div class="col-xs-4 col-sm-2">.col-xs-6 .col-sm-4</div>
-  <div class="col-xs-10 col-sm-8"><div class= "container"">
-  
-<div id="Ganjamap" style='width: 68%; height: 400px;'></div>
-</div></div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-2">.col-xs-6 .col-sm-4</div>
+    <div class="col-xs-10 col-sm-8"><div class= "container"">
+
+      <div id="Ganjamap" style='width: 68%; height: 400px;'></div>
+    </div></div>
   <!-- Optional: clear the XS cols if their content doesn't match in height -->
   <div class="clearfix visible-xs"></div>
   <div class="col-xs-4 col-sm-2">.col-xs-6 .col-sm-4</div>
@@ -64,18 +45,18 @@
 
 
 <script type="text/javascript">
-var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {zoom:      15,
-      center:    new google.maps.LatLng(),
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles:    mapStyle}, internal: {id: 'Ganjamap'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    google.maps.event.addListener(handler.getMap(), 'click', yourFunction)
-  });
+    var mapStyle = [{"featureType":"landscape","stylers":[{"hue":"#FFA800"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#53FF00"},{"saturation":-73},{"lightness":40},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FBFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00FFFD"},{"saturation":0},{"lightness":30},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00BFFF"},{"saturation":6},{"lightness":8},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#679714"},{"saturation":33.4},{"lightness":-25.4},{"gamma":1}]}];
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {zoom:      15,
+        center:    new google.maps.LatLng(),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles:    mapStyle}, internal: {id: 'Ganjamap'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        google.maps.event.addListener(handler.getMap(), 'click', yourFunction)
+    });
 </script>
 
 

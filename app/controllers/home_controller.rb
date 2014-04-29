@@ -14,7 +14,7 @@ class HomeController < ApplicationController
             marker.lng ganjaloc.longitude
             marker.title ganjaloc.title
         end
-    @ganjalocs = @ganjalocs.page(params[:page]).per_page(10)
+        @ganjalocs = @ganjalocs.page(params[:page]).per_page(10)
     end
 
     def show
