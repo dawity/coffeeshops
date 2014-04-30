@@ -11859,3 +11859,844 @@ UserTest: test_a_user_with_no_attributes_is_not_valid
   [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
   [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36m (137.8ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (130.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (181.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (144.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (165.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140423201212')
+  [1m[36m (166.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:17:24', '2014-04-30 06:17:24', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:17:24', '2014-04-30 06:17:24', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Dawit', 'dawityhaile@gmail.com', '2014-04-30 06:17:24', '2014-04-30 06:17:24', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Nayak', 'nayak@yahoo.com', '2014-04-30 06:17:24', '2014-04-30 06:17:24', 298486374)
+  [1m[36m (150.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------------
+GanjalocsControllerTest: test_should_create_ganjaloc
+----------------------------------------------------
+  [1m[36mGanjaloc Load (0.8ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+Processing by GanjalocsController#create as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mGanjaloc Exists (0.3ms)[0m  SELECT 1 AS one FROM "ganjalocs" WHERE "ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' LIMIT 1
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "ganjalocs" ("address", "created_at", "description", "latitude", "longitude", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["created_at", Wed, 30 Apr 2014 06:17:25 UTC +00:00], ["description", "Vally and Csula"], ["latitude", 34.07471719999999], ["longitude", -118.1667513], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:17:25 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/ganjalocs/980190963
+Completed 302 Found in 333ms (ActiveRecord: 3.9ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+GanjalocsControllerTest: test_should_destroy_ganjaloc
+-----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+Processing by GanjalocsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.2ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "ganjalocs" WHERE "ganjalocs"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------
+GanjalocsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered ganjalocs/_form.html.erb (48.0ms)
+Completed 200 OK in 335ms (Views: 331.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GanjalocsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#index as HTML
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered ganjalocs/_nav_for_ganjaloc.html.erb (4.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 4 OFFSET 0
+  Rendered ganjalocs/_table_for_ganjaloc.html.erb (11.1ms)
+Completed 200 OK in 36ms (Views: 30.1ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+GanjalocsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#new as HTML
+  Rendered ganjalocs/_form.html.erb (12.9ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+GanjalocsControllerTest: test_should_show_ganjaloc
+--------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+GanjalocsControllerTest: test_should_update_ganjaloc
+----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#update as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}, "id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mGanjaloc Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "ganjalocs" WHERE ("ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' AND "ganjalocs"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  UPDATE "ganjalocs" SET "latitude" = ?, "longitude" = ?, "address" = ?, "description" = ?, "title" = ?, "updated_at" = ? WHERE "ganjalocs"."id" = 980190962  [["latitude", 34.07471719999999], ["longitude", -118.1667513], ["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["description", "Vally and Csula"], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:17:26 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs/980190962
+Completed 302 Found in 377ms (ActiveRecord: 2.9ms)
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  [1m[35mGanjaloc Load (0.5ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered home/_nav_for_home.html.erb (3.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 10 OFFSET 0
+  Rendered home/_table_for_home.html.erb (4.9ms)
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------
+UserTest: test_a_user_with_no_attributes_is_not_valid
+-----------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+---------------------------
+UserTest: test_email_format
+---------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('nayakdavit@gmail.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 30 Apr 2014 06:17:26 UTC +00:00], ["email", "nayakdavit@gmail.com"], ["name", "Haile"], ["updated_at", Wed, 30 Apr 2014 06:17:26 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 14ms (ActiveRecord: 1.7ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('nayakdavit@gmail.com') AND "users"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = 980190962  [["name", "Haile"], ["email", "nayakdavit@gmail.com"], ["updated_at", Wed, 30 Apr 2014 06:17:26 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 15ms (ActiveRecord: 2.2ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (157.0ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (163.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (170.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (155.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (142.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140423201212')
+  [1m[36m (166.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:23:02', '2014-04-30 06:23:02', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:23:02', '2014-04-30 06:23:02', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Dawit', 'dawityhaile@gmail.com', '2014-04-30 06:23:02', '2014-04-30 06:23:02', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Nayak', 'nayak@yahoo.com', '2014-04-30 06:23:02', '2014-04-30 06:23:02', 298486374)
+  [1m[36m (151.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------------
+GanjalocsControllerTest: test_should_create_ganjaloc
+----------------------------------------------------
+  [1m[36mGanjaloc Load (1.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+Processing by GanjalocsController#create as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mGanjaloc Exists (0.3ms)[0m  SELECT 1 AS one FROM "ganjalocs" WHERE "ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' LIMIT 1
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "ganjalocs" ("address", "created_at", "description", "latitude", "longitude", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["created_at", Wed, 30 Apr 2014 06:23:02 UTC +00:00], ["description", "Vally and Csula"], ["latitude", 34.07471719999999], ["longitude", -118.1667513], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:23:02 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/ganjalocs/980190963
+Completed 302 Found in 517ms (ActiveRecord: 3.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+GanjalocsControllerTest: test_should_destroy_ganjaloc
+-----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+Processing by GanjalocsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.2ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "ganjalocs" WHERE "ganjalocs"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------
+GanjalocsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.6ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered ganjalocs/_form.html.erb (41.4ms)
+Completed 200 OK in 324ms (Views: 318.8ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GanjalocsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#index as HTML
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered ganjalocs/_nav_for_ganjaloc.html.erb (4.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.5ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 4 OFFSET 0
+  Rendered ganjalocs/_table_for_ganjaloc.html.erb (11.1ms)
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+GanjalocsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#new as HTML
+  Rendered ganjalocs/_form.html.erb (12.8ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+GanjalocsControllerTest: test_should_show_ganjaloc
+--------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+GanjalocsControllerTest: test_should_update_ganjaloc
+----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#update as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}, "id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mGanjaloc Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "ganjalocs" WHERE ("ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' AND "ganjalocs"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  UPDATE "ganjalocs" SET "latitude" = ?, "longitude" = ?, "address" = ?, "description" = ?, "title" = ?, "updated_at" = ? WHERE "ganjalocs"."id" = 980190962  [["latitude", 34.07471719999999], ["longitude", -118.1667513], ["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["description", "Vally and Csula"], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:23:03 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs/980190962
+Completed 302 Found in 285ms (ActiveRecord: 2.8ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered home/_nav_for_home.html.erb (5.8ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 10 OFFSET 0
+  Rendered home/_table_for_home.html.erb (5.0ms)
+Completed 200 OK in 31ms (Views: 26.2ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------
+UserTest: test_a_user_with_no_attributes_is_not_valid
+-----------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------
+UserTest: test_email_format
+---------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('nayakdavit@gmail.com') LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 30 Apr 2014 06:23:03 UTC +00:00], ["email", "nayakdavit@gmail.com"], ["name", "Haile"], ["updated_at", Wed, 30 Apr 2014 06:23:03 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 21ms (ActiveRecord: 3.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (79.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 86ms (ActiveRecord: 80.3ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('nayakdavit@gmail.com') AND "users"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = 980190962  [["name", "Haile"], ["email", "nayakdavit@gmail.com"], ["updated_at", Wed, 30 Apr 2014 06:23:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 12ms (ActiveRecord: 1.6ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (165.9ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (163.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (169.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (144.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (146.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140423201212')
+  [1m[36m (144.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:27:57', '2014-04-30 06:27:57', 980190962)
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:27:57', '2014-04-30 06:27:57', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Dawit', 'dawityhaile@gmail.com', '2014-04-30 06:27:57', '2014-04-30 06:27:57', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Nayak', 'nayak@yahoo.com', '2014-04-30 06:27:57', '2014-04-30 06:27:57', 298486374)
+  [1m[36m (159.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------------
+GanjalocsControllerTest: test_should_create_ganjaloc
+----------------------------------------------------
+  [1m[36mGanjaloc Load (0.6ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+Processing by GanjalocsController#create as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mGanjaloc Exists (0.3ms)[0m  SELECT 1 AS one FROM "ganjalocs" WHERE "ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' LIMIT 1
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "ganjalocs" ("address", "created_at", "description", "latitude", "longitude", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["created_at", Wed, 30 Apr 2014 06:27:58 UTC +00:00], ["description", "Vally and Csula"], ["latitude", 34.07471719999999], ["longitude", -118.1667513], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:27:58 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/ganjalocs/980190963
+Completed 302 Found in 298ms (ActiveRecord: 4.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+GanjalocsControllerTest: test_should_destroy_ganjaloc
+-----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+Processing by GanjalocsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "ganjalocs" WHERE "ganjalocs"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------------------------
+GanjalocsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered ganjalocs/_form.html.erb (42.2ms)
+Completed 200 OK in 309ms (Views: 305.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GanjalocsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#index as HTML
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered ganjalocs/_nav_for_ganjaloc.html.erb (3.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 4 OFFSET 0
+  Rendered ganjalocs/_table_for_ganjaloc.html.erb (11.5ms)
+Completed 200 OK in 36ms (Views: 30.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+GanjalocsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#new as HTML
+  Rendered ganjalocs/_form.html.erb (13.5ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+GanjalocsControllerTest: test_should_show_ganjaloc
+--------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+GanjalocsControllerTest: test_should_update_ganjaloc
+----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#update as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}, "id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mGanjaloc Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "ganjalocs" WHERE ("ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' AND "ganjalocs"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (6.7ms)[0m  UPDATE "ganjalocs" SET "latitude" = ?, "longitude" = ?, "address" = ?, "description" = ?, "title" = ?, "updated_at" = ? WHERE "ganjalocs"."id" = 980190962  [["latitude", 34.07471719999999], ["longitude", -118.1667513], ["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["description", "Vally and Csula"], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:27:59 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs/980190962
+Completed 302 Found in 254ms (ActiveRecord: 7.8ms)
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  [1m[35mGanjaloc Load (0.5ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered home/_nav_for_home.html.erb (4.8ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.6ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 10 OFFSET 0
+  Rendered home/_table_for_home.html.erb (8.7ms)
+Completed 200 OK in 34ms (Views: 29.1ms | ActiveRecord: 1.5ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------
+UserTest: test_a_user_with_no_attributes_is_not_valid
+-----------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (1.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------
+UserTest: test_email_format
+---------------------------
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}}
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('nayakdavit@gmail.com') LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 30 Apr 2014 06:27:59 UTC +00:00], ["email", "nayakdavit@gmail.com"], ["name", "Haile"], ["updated_at", Wed, 30 Apr 2014 06:27:59 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 20ms (ActiveRecord: 2.6ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 88ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('nayakdavit@gmail.com') AND "users"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = 980190962  [["name", "Haile"], ["email", "nayakdavit@gmail.com"], ["updated_at", Wed, 30 Apr 2014 06:27:59 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 12ms (ActiveRecord: 1.7ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (145.9ms)[0m  [1mCREATE TABLE "ganjalocs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "latitude" float, "longitude" float, "address" varchar(255), "description" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (141.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (150.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (176.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (166.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140423201212')
+  [1m[36m (144.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140130044325')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "ganjalocs"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:29:21', '2014-04-30 06:29:21', 980190962)
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "ganjalocs" ("latitude", "longitude", "address", "description", "title", "created_at", "updated_at", "id") VALUES (1.5, 1.5, 'MyString', 'MyString', 'MyString', '2014-04-30 06:29:21', '2014-04-30 06:29:21', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Dawit', 'dawityhaile@gmail.com', '2014-04-30 06:29:21', '2014-04-30 06:29:21', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "id") VALUES ('Nayak', 'nayak@yahoo.com', '2014-04-30 06:29:21', '2014-04-30 06:29:21', 298486374)
+  [1m[36m (137.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------------
+GanjalocsControllerTest: test_should_create_ganjaloc
+----------------------------------------------------
+  [1m[36mGanjaloc Load (0.7ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+Processing by GanjalocsController#create as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mGanjaloc Exists (0.3ms)[0m  SELECT 1 AS one FROM "ganjalocs" WHERE "ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' LIMIT 1
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "ganjalocs" ("address", "created_at", "description", "latitude", "longitude", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["created_at", Wed, 30 Apr 2014 06:29:25 UTC +00:00], ["description", "Vally and Csula"], ["latitude", 34.07471719999999], ["longitude", -118.1667513], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:29:25 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/ganjalocs/980190963
+Completed 302 Found in 3043ms (ActiveRecord: 4.0ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+GanjalocsControllerTest: test_should_destroy_ganjaloc
+-----------------------------------------------------
+  [1m[35mGanjaloc Load (0.5ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+Processing by GanjalocsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM "ganjalocs" WHERE "ganjalocs"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs
+Completed 302 Found in 11ms (ActiveRecord: 1.8ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "ganjalocs"
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+---------------------------------------------
+GanjalocsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mGanjaloc Load (0.6ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mGanjaloc Load (0.2ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered ganjalocs/_form.html.erb (41.0ms)
+Completed 200 OK in 326ms (Views: 323.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+GanjalocsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#index as HTML
+  [1m[35mGanjaloc Load (0.6ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered ganjalocs/_nav_for_ganjaloc.html.erb (3.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.4ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 4 OFFSET 0
+  Rendered ganjalocs/_table_for_ganjaloc.html.erb (11.1ms)
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+GanjalocsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mGanjaloc Load (0.3ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by GanjalocsController#new as HTML
+  Rendered ganjalocs/_form.html.erb (12.8ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+GanjalocsControllerTest: test_should_show_ganjaloc
+--------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+GanjalocsControllerTest: test_should_update_ganjaloc
+----------------------------------------------------
+  [1m[35mGanjaloc Load (0.3ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by GanjalocsController#update as HTML
+  Parameters: {"ganjaloc"=>{"address"=>"5359 East Valley Boulevard, Los Angeles, California, United States", "description"=>"Vally and Csula", "latitude"=>"34.07471719999999", "longitude"=>"-118.1667513", "title"=>"GreenBear"}, "id"=>"980190962"}
+  [1m[36mGanjaloc Load (0.2ms)[0m  [1mSELECT "ganjalocs".* FROM "ganjalocs" WHERE "ganjalocs"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mGanjaloc Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "ganjalocs" WHERE ("ganjalocs"."address" = '5359 East Valley Boulevard, Los Angeles, California, United States' AND "ganjalocs"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "ganjalocs" SET "latitude" = ?, "longitude" = ?, "address" = ?, "description" = ?, "title" = ?, "updated_at" = ? WHERE "ganjalocs"."id" = 980190962  [["latitude", 34.07471719999999], ["longitude", -118.1667513], ["address", "5359 East Valley Boulevard, Los Angeles, California, United States"], ["description", "Vally and Csula"], ["title", "GreenBear"], ["updated_at", Wed, 30 Apr 2014 06:29:25 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/ganjalocs/980190962
+Completed 302 Found in 329ms (ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  [1m[35mGanjaloc Load (0.6ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs"
+  Rendered home/_nav_for_home.html.erb (4.5ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ganjalocs"[0m
+  [1m[35mGanjaloc Load (0.6ms)[0m  SELECT "ganjalocs".* FROM "ganjalocs" LIMIT 10 OFFSET 0
+  Rendered home/_table_for_home.html.erb (6.8ms)
+Completed 200 OK in 32ms (Views: 26.8ms | ActiveRecord: 1.5ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------
+UserTest: test_a_user_with_no_attributes_is_not_valid
+-----------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+---------------------------
+UserTest: test_email_format
+---------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@foo.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('A_US-ER@f.b.org') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('frst.lst@foo.jp') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@foo,com') LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user_at_foo.org') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example.user@foo.') LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('foo@bar_baz.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('nayakdavit@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 30 Apr 2014 06:29:26 UTC +00:00], ["email", "nayakdavit@gmail.com"], ["name", "Haile"], ["updated_at", Wed, 30 Apr 2014 06:29:26 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 13ms (ActiveRecord: 1.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Haile", "email"=>"nayakdavit@gmail.com"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('nayakdavit@gmail.com') AND "users"."id" != 980190962) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = 980190962[0m  [["name", "Haile"], ["email", "nayakdavit@gmail.com"], ["updated_at", Wed, 30 Apr 2014 06:29:26 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 12ms (ActiveRecord: 1.7ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m

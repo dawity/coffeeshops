@@ -12,24 +12,22 @@ class UserTest < ActiveSupport::TestCase
     assert user.errors[:email].any?                    
   end
 
-  def new_product(image_url)
-		Product.new(title:
-		"My Book Title",
-		description: "yyy",
-		price:
-		1,
-		image_url:
-		image_url)
+  def new_user(email_format)
+	User.new(
+		name: "Messay",
+		email: email_format
+	)
   end
-  test "email format" do
-	ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
-	http://a.b.c/x/y/z/fred.gif }
-	bad = %w{ fred.doc fred.gif/more fred.gif.more }
-	ok.each do |name|
-	  assert new_product(name).valid?, "#{name} should be valid"
+
+  test "email_format" do
+	good= %w{ user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn}
+	bad = %w{ user@foo,com user_at_foo.org example.user@foo.
+                     foo@bar_baz.com foo@bar+baz.com }
+	good.each do |name|
+	  assert new_user(name).valid?, "#{name} should be valid"
 	end
 	bad.each do |name|
-	  assert new_product(name).invalid?, "#{name} shouldn't be valid"
+	  assert new_user(name).invalid?, "#{name} shouldn't be valid"
 	end
 
   end
