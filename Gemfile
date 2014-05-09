@@ -72,4 +72,6 @@ gem 'will_paginate', '> 3.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'annotate'
 gem 'bootstrap_form'
+
+ruby 2.1.1
  
