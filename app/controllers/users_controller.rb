@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+    before_action :signed_in_user, only: [:edit, :update]
     before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :correct_user,   only: [:edit, :update]
+    protect_from_forgery
     def show
       
     end
@@ -10,6 +13,7 @@ class UsersController < ApplicationController
     def create
     	@user=User.new(user_params)
     	if @user.save
+        sign_in @user
     		flash[:success]="Welcome to Ganja Map!"
     		redirect_to @user
 
@@ -25,8 +29,9 @@ class UsersController < ApplicationController
 
 
   def update
+     @user = User.find(params[:id])
       respond_to do |format|
-        if @user.update(user_params)
+        if @user.update_attributes(user_params)
           format.html { redirect_to @user, notice: 'your profile was successfully updated.' }
           format.json { head :no_content }
         else
@@ -52,7 +57,20 @@ private
     end
       
     def user_params
-       	params.require(:user).permit(:name, :email)  	
+       	params.require(:user).permit(:name, :email, :password, :password_confirmation)  	
+    end
+
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
     
 end

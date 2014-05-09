@@ -1,6 +1,7 @@
 class GanjalocsController < ApplicationController
+   http_basic_authenticate_with name: "$5v7m90+?su$", password: "@90ns*>/Wrt"
   before_action :set_ganjaloc, only: [:show, :edit, :update, :destroy]
-
+   protect_from_forgery
   # GET /ganjalocs
   # GET /ganjalocs.json
     def index

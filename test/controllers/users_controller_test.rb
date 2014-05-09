@@ -4,7 +4,9 @@ class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
     @update={name: 'Haile',
-            email: 'nayakdavit@gmail.com'
+             email: 'nayakdavit@gmail.com',
+             password: 'abc123',
+             password_confirmation: 'abc123'
 
     }
   end
@@ -21,7 +23,7 @@ class UsersControllerTest < ActionController::TestCase
       post :create, user: @update
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to user_path (assigns(:user))
   end
 
   test "should show user" do
@@ -35,7 +37,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    patch :update, id: @user, user: @update
+    patch :update, id: @user.to_param, user: @update
     assert_redirected_to user_path (assigns(:user))
   end
   

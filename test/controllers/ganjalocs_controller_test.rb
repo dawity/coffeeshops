@@ -5,11 +5,11 @@ class GanjalocsControllerTest < ActionController::TestCase
     @ganjaloc = ganjalocs(:one)
     @update = {
 
-      address: '5359 East Valley Boulevard, Los Angeles, California, United States',
-      description: 'Vally and Csula',
-      latitude: 34.07471719999999, 
-      longitude: -118.1667513, 
-      title: 'GreenBear' 
+      address: '1568 S Federal Blvd, 80204',
+      description: 'Mile High Therapeutic',
+      latitude: 39.7356724, 
+      longitude: -105.0251356, 
+      title: 'Altitude' 
    }
   end
 
