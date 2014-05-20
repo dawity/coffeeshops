@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508023225) do
+ActiveRecord::Schema.define(version: 20140511015150) do
 
   create_table "ganjalocs", force: true do |t|
     t.float    "latitude"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20140508023225) do
     t.datetime "updated_at"
   end
 
+  create_table "microposts", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -30,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140508023225) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

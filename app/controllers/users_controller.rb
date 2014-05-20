@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
-    before_action :signed_in_user, only: [:edit, :update]
+    before_action :signed_in_user, only: [:index, :edit, :update]
     before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :correct_user,   only: [:edit, :update]
+    before_action :admin_user,     only: :destroy
     protect_from_forgery
+    
+    def index
+       @users = User.paginate(page: params[:page])
+    end  
+
     def show
-      
+     @users = User.all
     end
 
     def new
@@ -20,16 +26,16 @@ class UsersController < ApplicationController
     	else
     		render 'new'
     	end
-    end
-
+   
+end
 
   def edit
-    
+    @user = User.find(params[:id])
   end
 
 
   def update
-     @user = User.find(params[:id])
+     # @user = User.find(params[:id])
       respond_to do |format|
         if @user.update_attributes(user_params)
           format.html { redirect_to @user, notice: 'your profile was successfully updated.' }
@@ -42,11 +48,13 @@ class UsersController < ApplicationController
     end
 
 
-  def destroy
-      @user.destroy
+     def destroy
+      # @user.destroy
+
+      User.find(params[:id]).destroy
       respond_to do |format|
         format.html { redirect_to users_url }
-        format.json { head :no_content }
+        # format.json { head :no_content }
       end
     end
 
@@ -63,7 +71,7 @@ private
 
     def signed_in_user
       unless signed_in?
-        store_location
+        # store_location
         redirect_to signin_url, notice: "Please sign in."
       end
     end
@@ -71,6 +79,10 @@ private
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
     
 end

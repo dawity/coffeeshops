@@ -7,9 +7,6 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Ganjamap-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </button>
       <%= link_to 'GanjaMap', home_path, class: 'navbar-brand' %>
     </div>
@@ -23,7 +20,7 @@
       </ul>
  -->
 
-
+<div class="container-fluid">
       
       <%= form_tag(@ganjaloc, method: "get",role: "search", class: "navbar-form navbar-left" ) do %>
       
@@ -37,19 +34,23 @@
         <%end %>
     
       <%end %>
-      
+ </div>     
           
       <ul class="nav navbar-nav navbar-right">
       
        <% if signed_in? %>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-user fa-lg"></i>
+
+          </a>
           <ul class="dropdown-menu">
             <li><%= link_to "Profile", current_user %></li>
-            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-            <li class="divider"></li>
-    
+            <li><%= link_to edit_user_path(current_user) do%>
+             <i class="fa fa-cog"></i>
+             <% end %>
+            </li>
             <li><%= link_to signout_path, method: "delete" do %>
                <i class="fa fa-sign-out"></i>
             <% end %>
@@ -59,8 +60,8 @@
 
         <% else %>
         <li>
-       <%= link_to(signin_path, id: "Sign in") do %>
-            <i class="fa fa-sign-in"></i>
+       <%= link_to signin_path, id: "Sign in" do %>
+            <i class="fa fa-user fa-lg"></i>
           <% end %>
           </li>
         <% end %>
@@ -74,4 +75,4 @@
 
 <!--Navigation Markup End Here-->
 
-<!--Navigation Markup End Here-->
+

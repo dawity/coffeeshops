@@ -6,21 +6,26 @@
   <div class="col-xs-6 col-sm-4"> <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
       <%= bootstrap_form_for(@user) do |f| %>
-
-
+      
+            
       <%= f.text_field :name %>
 
-
+      
       <%= f.text_field :email %>
 
+      
+      <%= f.password_field :password %>
 
       
-   
-        <%= f.submit %>
-      
+      <%= f.password_field :password_confirmation %>
 
-      <% end %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <%= gravatar_for @user %>
   <!-- Optional: clear the XS cols if their content doesn't match in height -->
   <div class="clearfix visible-xs"></div>
   <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
 </div>
+
+

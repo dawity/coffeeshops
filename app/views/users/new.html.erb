@@ -12,22 +12,33 @@
       <% provide(:title, 'Sign up') %>
       <h1>Sign up</h1>
 
-      <%= bootstrap_form_for(@user) do |f| %>
+      <%= form_for(@user) do |f| %>
 
+      <div class="form-group">
+      <%= f.label :name, class:"control-label"%>
+      <%= f.text_field :name, class:"form-control" %>
+      </div>
 
-      <%= f.text_field :name %>
+      <div class="form-group">
+      <%= f.label :email, class:"control-label"%>
+      <%= f.text_field :email, class:"form-control"  %>
+      </div>
+      
+      <div class="form-group">
+      <%= f.label :password, class:"control-label"%>
+      <%= f.password_field :password, class:"form-control" %>
 
+      <span class="help-block">Must be at least..</span>
+      
+      </div>
 
-      <%= f.text_field :email %>
-
-
-      <%= f.password_field :password, help: "Must be at least 6 characters long" %>
-
-
-      <%= f.password_field :password_confirmation, help: "Must be at least 6 characters long" %>
-      <%= f.form_group do %>
+      <div class="form-group">
+      <%= f.label :password_confirmation, class:"control-label" %>
+      <%= f.password_field :password_confirmation, class:"form-control" %>
+      </div>
+      
       <%= f.submit"Sign Up", class: "btn btn-success"  %>
-      <% end %>
+      
 
       <% end %>
   </div>

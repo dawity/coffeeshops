@@ -3,6 +3,13 @@
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
+#the faker gem is to make sample users with semi-realistic names
+
+gem 'faker', '1.1.2'
+
+
+
+
 # We use sqlite3 as the database for Active Record
 group :development do
     gem 'sqlite3'

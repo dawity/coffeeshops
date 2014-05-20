@@ -45,7 +45,7 @@ $colHover       : #4c956f;
 
 /*-----custome Google map style----------*/
 
-
+h1{ font-family:"Krona One", Arial, serif;}
 
 
 /* --- Custome Style for Ganjamap --- */
@@ -152,4 +152,19 @@ $grayMediumLight: #eaeaea;
 
 /* Style for  debug box with a Sass mixin END*/
 
+/* Users index */
+$grayLighter: #2b8454;
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
 
+.modal-footer {   border-top: 0px; }
