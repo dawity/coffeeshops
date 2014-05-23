@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     
     def destroy
       sign_out
-      redirect_to home_url
+      redirect_to home_url, notice: "You are Logged out"
     end
   
 end

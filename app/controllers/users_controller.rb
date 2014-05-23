@@ -20,8 +20,8 @@ class UsersController < ApplicationController
     	@user=User.new(user_params)
     	if @user.save
         sign_in @user
-    		flash[:success]="Welcome to Ganja Map!"
-    		redirect_to @user
+    		#flash[:success]=
+    		redirect_to @user, notice: "Welcome to Ganja Map #{@user.name} !"
 
     	else
     		render 'new'
