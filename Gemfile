@@ -64,11 +64,10 @@ gem 'font-awesome-rails'
 gem 'will_paginate', '> 3.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'annotate'
-gem 'bootstrap_form'
+
 
 # used to notify errors and exceptions during production
-
-gem 'exception_notification'
+#gem 'exception_notification'
 
 
 
