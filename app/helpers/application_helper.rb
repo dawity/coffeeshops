@@ -1,10 +1,10 @@
 module ApplicationHelper
 	def full_title(page_title)
-    base_title = "GanjaMap"
+    default_title = "GanjaMap"
     if page_title.empty?
-      base_title
+      default_title
     else
-      "#{base_title} | #{page_title}"
+      "#{default_title} | #{page_title}"
     end
   end
 end
