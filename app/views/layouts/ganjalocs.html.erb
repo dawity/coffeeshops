@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+
+  <%= render "layouts/shim" %>
+
+  <%= stylesheet_link_tag "application", media: "all",
+                          "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Krona+One" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <%= yield %>
+</div>
+<script type="text/javascript">
+
+    <%= render "layouts/script" %>
+
+</script>
+
+
+</body>
+</html>

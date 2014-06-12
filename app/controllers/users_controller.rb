@@ -35,7 +35,7 @@ end
 
 
   def update
-     # @user = User.find(params[:id])
+      @user = User.find(params[:id])
       respond_to do |format|
         if @user.update_attributes(user_params)
           format.html { redirect_to @user, notice: 'your profile was successfully updated.' }
@@ -49,12 +49,10 @@ end
 
 
      def destroy
-      # @user.destroy
-
       User.find(params[:id]).destroy
       respond_to do |format|
         format.html { redirect_to users_url }
-        # format.json { head :no_content }
+        format.json { head :no_content }
       end
     end
 

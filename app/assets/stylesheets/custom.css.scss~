@@ -222,7 +222,7 @@ footer hr{
   margin-top: 10px;
   margin-bottom: 10px;
   border-top: #155827 1px solid;
-  border-bottom: #155827 1px solid;
+  border-bottom: #212121 1px solid;
 }
 
 footer .social{
