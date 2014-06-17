@@ -1,0 +1,38 @@
+[33m35391532a3b4410030ed27bd29d822309fc672b6[m Nothing Done
+[33mfdc187474d0cc475fa2f60b82c084f6449938004[m Fontawesome Fix
+[33mfc49e855384ec4a6e23db9a4e69075ad0f3ba433[m Renamed the app and updated
+[33m952b617cf3ea175a8bf248136a112cf08c94f090[m added SSL to heroku
+[33m84306fb7f7bb3144c3ea6901d8607e2bfa8cceaf[m email to heroku
+[33mcedc8f216ddbdd0f16b31351228c07079073da2a[m emailadded to heroku
+[33mf27ab5315b3f1b1913367cc35bfc31c22aaa7625[m Refactor the view and cleaned up the clutter
+[33m91a62e46a6b4252d2df38fea05f3997095dd224b[m ActiveRecord Session store
+[33m0e54983e4c7c3a4b452630f949e34f7c40e34871[m removed exception notifier since its not working with
+[33m4ba7ab2c06c8e24afd93823b95508a569823ca54[m exception notifier is being tested2
+[33ma616658668f27db9a2d2d189b478417e2aae42cd[m exception notifier is being tested
+[33m648ea01bfabab6aa3e58f58b438ccf1af9163c92[m V2 of Gajamap Start here
+[33md0017d27fca1692c6932c09128ecb46ebef643bd[m Fixed fonts and Authentication
+[33mba123025a8badc7f98f8588b8a01614e189b3484[m  bundle exec rake assets:precompile fonts
+[33m4fbd0636939f1929650b965e166ba1a9f8dd537e[m Incorporating fonts
+[33m6927e63db6dded5be62011528c38d174edbd544e[m Added pre-compiled public file
+[33m76e4e4932d4c2ee8916596727738335afcafc3b6[m Added ruby version to the Gemfile
+[33ma827f4b74a5d205ad23388a718736da40fd6016c[m Added ruby version to the Gemfile
+[33mca3fa00ba168ea7ef51ba9f352560e2ef05501aa[m ignored Log and temp
+[33mc07006076fd6fcc4bbdc1cae081843fbfb5b0c55[m fixed The Authentication and Layot of the Navigation
+[33m3b3d502b7eb534078e57e63e640db92ddb8b2087[m With Better_errors Gem
+[33m697781af325bd3d26336bd7d25779a93e069e62e[m added password_digest attribute
+[33me7cad170a12266c9b2030695e31d465669909147[m Rebased and pushed to gitHub
+[33m122994e0a05ea42a60de36ce5424d082f245bdb7[m Worked on validation and test
+[33mfef90c15c1312ffe7895b72695d914d698c8e9a5[m V-2-1 corection on rails version
+[33m6b18213275f88fe5dfa82338f2ab73d337a10470[m seeded the database
+[33me3d10966186c1174170a659d072fb5cd967aa02e[m Refactored search
+[33m336da96f8080fb3c41c50eb307cc3452272f8a4b[m added a few file
+[33m5afd59c2e788fe8483c6a9cc3960c6d1e0fcba13[m Finally figured out why the database is not connecting
+[33m665997d8d4ac004770d0e66f559b4b39f8ff6cdb[m Heroku
+[33m31736c00c4e98da07a17d7c4a0d993402f8591b2[m Rakefile.rb
+[33m15f3db4dcfdadda5dfd8013af1e82c761e628f0f[m Heroku
+[33m5a519cbac744d0194e214333f0c21473432c5aa4[m Added Gemfile.lock
+[33mba95f36e4e08e34d36ab97dea196affa1f19e641[m The Last work before deploying it on heroku
+[33m36fa80068579c77171ad2745a7c5860d3f4b1227[m Heroku
+[33m83a1a4abe4f7b851ac7d2cca90532f0debc01433[m FirstRepo
+[33mef6e93a783777248178a3c247da5266755f0b941[m Clean-and-Working-master
+[33mbf241ef04a3245ffe3ffc490b7e556ec0d698e6a[m simple and working search and also goole fonts
