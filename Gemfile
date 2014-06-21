@@ -14,6 +14,7 @@ group :development do
     gem "binding_of_caller"
 end
 
+gem 'therubyracer'
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
@@ -44,7 +45,10 @@ group :production do
 end
 
 gem 'bootstrap-sass', '~> 3.0.3.0'
+  
 
+
+  
 # This is for maping functionality of The App
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -57,9 +61,5 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 # used to notify errors and exceptions during production
 #gem 'exception_notification'
-
-
-
-source "https://rubygems.org"
-ruby "2.1.1"
-
+# source "https://rubygems.org"
+# ruby "2.1.1"

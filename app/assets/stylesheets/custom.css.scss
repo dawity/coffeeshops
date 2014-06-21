@@ -1,351 +1,488 @@
+$navbar-height:                    80px !default;
 
-$brand-primary: #a5fd07;
-$brand-success: #5cb85c;
-$brand-info: #5bc0de;
-$brand-warning: #f0ad4e;
-$brand-danger: #d9534f;
-$gray-dark: #40bfa4;
-/* Added by Dawit Haile*/
 
-/*--------Beggin importing bootsrap-----------*/
+$grid-gutter-width:                30px !default;
+
+$navbar-collapse-max-height:       340px !default;
+
+$navbar-default-color:             #FFFFFF !default;
+$navbar-default-bg:                #66FF00 !default;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+
+// Navbar links
+$navbar-default-link-color:                #000000 !default;
+$navbar-default-link-hover-color:          #333 !default;
+$navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         #FFFFFF !default;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
+
+// Navbar brand label
+$navbar-default-brand-color:               $navbar-default-link-color !default;
+$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%) !default;
+$navbar-default-brand-hover-bg:            transparent !default;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd !default;
+$navbar-default-toggle-icon-bar-bg:        #888 !default;
+$navbar-default-toggle-border-color:       #ddd !default;
+
+//$gray-lighter:           lighten(#000, 93.5%) !default;
+$gray-lighter:             #055c28 !default;
+
+
+
+
 
 @import "bootstrap";
 
-/* Extra Small */
-@media(max-width:767px){}
+//
+// Navbars
+// --------------------------------------------------
 
-/* Small */
-@media(min-width:768px) and (max-width:991px){}
 
-/* Medium */
-@media(min-width:992px) and (max-width:1199px){}
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
 
-/* Large */
-@media(min-width:1200px){}
-body {
-    background       : none;
-    
+.navbar {
+  position: relative;
+  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+
+  // Prevent floats from breaking the navbar
+  @include clearfix();
+
+  @media (min-width: $grid-float-breakpoint) {
+    border-radius: $navbar-border-radius;
+  }
 }
 
 
-.navbar-default{margin-bottom:0;
-margin-top:0;}
+// Navbar heading
+//
+// Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
+// styling of responsive aspects.
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #4c956f;
-    background-color:#a5fd07
-}
+.navbar-header {
+  @include clearfix();
 
-.navbar-default .navbar-nav > .active > a, 
-.navbar-default .navbar-nav > .active > a:hover, 
-.navbar-default .navbar-nav > .active > a:focus {
-    color                : $gray-dark;
-    background-color     :  #4c956f;
-}
-/* Added by Dawit Haile*/
-
-/*--------Beggin importing bootsrap-----------*/
-container-liquid{padding-top: 0;
-margin-top:0;
-position: absolute;}
-.container-fluid{ padding-top:0;
-                  margin-top:0;
-                  background-color   : none;
-                  border-color       : #449e3d;    
-                  font-family        : "Krona One";
-}
-
-$colHighlight   : #4c956f;
-$bgDefault      : #e74c3c;
-$bgHighlight    : #c0392b;
-$colDefault     : #f607c1;
-$colHover       : #4c956f;
-@font-face{ font-family: 'Font-Awesome'; src: asset-url('font-awesome.eot'); src: asset-url('font-awesome.eot?#iefix') format('embedded-opentype'),
-asset-url('font-awesome.svg') format('svg'),
-asset-url('font-awesome.woff') format('woff'); }
- @font-face {
-    font-family: "KronaOneRegular";
-    src: font_url("KronaOne-Regular.ttf") format('truetype');
-         
-}
- 
-
-html{font-family:"Krona One", Arial, serif;}
-
-*{ font-family: "Krona One", Arial, serif; }
-
-/*-----custome Google map style----------*/
-
-h1 h2 h3 h4 h5{ font-family:"Krona One", Arial, serif;}
-
-
-/* --- Custome Style for Ganjamap --- */
-form.navbar-form > div.form-group {width: 57em;}
-
-
-/*-------------------------search button on the navigation--------------------------------------*/
-.btn.btn-ganja {
-            background       :  #2BDC1C;
-            border-color     :  #155827;
-}
-
-.btn-ganja:hover {
-background: #2b8454;
-border-color: #229456;
-}
-
-/*-------------------------font awesome and etc--------------------------------------*/
-
-.table{border-collapse: collapse;
+  @media (min-width: $grid-float-breakpoint) {
+    float: left;
+  }
 }
 
 
-div.panel.panel-info >div.panel-heading>div.pagination {
-.disabled {
-display: none;
-height: 22px;
-margin: 2px, 0;
+// Navbar collapse (body)
+//
+// Group your navbar content into this for easy collapsing and expanding across
+// various device sizes. By default, this content is collapsed when <768px, but
+// will expand past that for a horizontal display.
+//
+// To start (on mobile devices) the navbar links, forms, and buttons are stacked
+// vertically and include a `max-height` to overflow in case you have too much
+// content for the user's viewport.
 
-}
-.panel-heading{
-  padding: 5px;
-}
+.navbar-collapse {
+  max-height: $navbar-collapse-max-height;
+  overflow-x: visible;
+  padding-right: $navbar-padding-horizontal;
+  padding-left:  $navbar-padding-horizontal;
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+  @include clearfix();
+  -webkit-overflow-scrolling: touch;
 
+  &.in {
+    overflow-y: auto;
+  }
 
+  @media (min-width: $grid-float-breakpoint) {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
 
-background: white;
-cursor: default;
-height: 22px;
-a, span, em {
-padding: 0.2em 0.5em;
-display: block;
-float: left;
-margin-right: 1px;
-}
-.disabled {
-color: #999999;
-border: 1px solid #dddddd;
-}
-.current {
-font-style: normal;
-font-weight: bold;
-background: #40bf4c;
-color: #21953d;
-border: 1px solid #40bf4c;
-}
-a{
-text-decoration: none;
-color: #40bf4c;
-border: 1px solid #6ae275;
-&:hover, &:focus {
-color: #000033;
-border-color: #000033;
-}
-}
-.page_info {
-background: #40bf4c;
-color: white;
-padding: 0.4em 0.6em;
-width: 22em;
-margin-bottom: 0.3em;
-text-align: center;
-b{
-color: #000033;
-background: #40bf4c + 60;
-padding: 0.1em 0.25em;
-}
-}
-}
-#map{
+    &.collapse {
+      display: block !important;
+      height: auto !important;
+      padding-bottom: 0; // Override default setting
+      overflow: visible !important;
+    }
 
-background-color: none;
-border: 2px solid #B8CB99;
-padding: 10px;
-}
+    &.in {
+      overflow-y: visible;
+    }
 
-
-
-/* Style for  debug box with a Sass mixin START*/
-
-
-
-$grayMediumLight: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
-
-/* Style for  debug box with a Sass mixin END*/
-
-/* Users index */
-$grayLighter: #2b8454;
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
+    // Undo the collapse side padding for navbars with containers to ensure
+    // alignment of right-aligned contents.
+    .navbar-fixed-top &,
+    .navbar-static-top &,
+    .navbar-fixed-bottom & {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
 
 
-footer{
-   background:#5cb85c ;
-   border-top:3px solid #ddd; 
-   box-shadow:inset 0px 0px 3px #111;
-   color:#ffffff;
-   font-size:10px;
-   line-height:25px;
-   padding:35px 0px 10px 0px;
-}
+// Both navbar header and collapse
+//
+// When a container is present, change the behavior of the header and collapse.
 
-footer a{
-   color:#eee;
-   text-decoration:none;
-   border-bottom:1px dotted #888;
-}
+.container,
+.container-fluid {
+  > .navbar-header,
+  > .navbar-collapse {
+    margin-right: -$navbar-padding-horizontal;
+    margin-left:  -$navbar-padding-horizontal;
 
-footer a:hover{
-   color:#aaa;
-   text-decoration:none;
-   border:0px;
-}
-
-footer hr{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-top: #155827 1px solid;
-  border-bottom: #155827 1px solid;
-}
-
-footer .social{
-   margin-top:10px;
-}
-
-footer .social a i{
-   width:30px;
-   height:30px;
-   font-size:13px !important;
-   line-height:30px;
-   box-shadow:1px 1px 3px #000;
-}
-
-footer .fwidget{
-   font-style:italic;
-   margin-bottom:30px;
-}
-
-footer .fwidget h4{
-   font-size:16px;
-   color:#eee;
-   font-style:normal;
-}
-
-footer .fwidget ul{
-   margin-left:0px;
-   padding-left:0px;
-   list-style-type:none;
-}
-
-footer .fwidget ul li{
-   margin-bottom:10px;
-}
-
-footer  i.contact-icon{
-   background:#0fa6bc;
-   width:30px;
-   height:30px;
-   line-height:30px;
-   text-align:center;
-   display:inline-block;
-   border-radius:100px;
-   color:#fff;
-   font-size:10px;
-   margin-right:7px;
-}
-
-footer .address p{
-   margin-bottom:6px;
-}
-
-footer .copy{
-   font-size:5px;
-   margin:15px 0px;
+    @media (min-width: $grid-float-breakpoint) {
+      margin-right: 0;
+      margin-left:  0;
+    }
+  }
 }
 
 
-.social{
-   margin:10px 0px;
+//
+// Navbar alignment options
+//
+// Display the navbar across the entirety of the page or fixed it to the top or
+// bottom of the page.
+
+
+// Brand/project name
+
+.navbar-brand {
+  float: left;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  font-size: $font-size-large;
+  height: $navbar-height;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+     margin-left:  30px; //margin-left: -$navbar-padding-horizontal;
+    }
+  }
 }
 
-.social a i{
-   display:inline-block;
-   width:40px;
-   height:40px;
-   font-size:17px !important;
-   line-height:40px;
-   text-decoration:none;
-   text-align:center;
-   color:#fff;
-   -webkit-transition: background 2s ease;
-   -moz-transition: background 2s ease;
-   -o-transition: background 2s ease;
-   -ms-transition: background 2s ease;
-   transition: background 2s ease;
-   border-radius:100px;
-   margin-right:5px;
-}
-.social a.facebook i{
-  background:#1e78ae;
-}
 
-.social a.twitter i{
-  background:#1ba1e2;
-}
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
 
-.social a.google-plus i{
-  background:#f22d0c;
-}
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: $navbar-padding-horizontal;
+  padding: 9px 10px;
+  @include navbar-vertical-align(34px);
+  background-color: transparent;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
 
-.social a.pinterest i{
-  background:#dd1617;
-}
+  // We remove the `outline` here, but later compensate by attaching `:hover`
+  // styles to `:focus`.
+  &:focus {
+    outline: none;
+  }
 
-.social a.linkedin i{
-  background:#2d93cf;
-}
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
 
-.social a:hover i{
-   background:#000;
-   -webkit-transition: background 2s ease;
-   -moz-transition: background 2s ease;
-   -o-transition: background 2s ease;
-   -ms-transition: background 2s ease;
-   transition: background 2s ease;
+  @media (min-width: $grid-float-breakpoint) {
+    display: none;
+  }
 }
 
-.social a, .social a:hover{
-   border:0px;
-   text-decoration:none;
+
+// Navbar nav links
+//
+// Builds on top of the `.nav` components with its own modifier class to make
+// the nav the full height of the horizontal nav (above 768px).
+
+.navbar-nav {
+  margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
+
+  > li > a {
+    padding-top:    10px;
+    padding-bottom: 10px;
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      > li > a,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+      > li > a {
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
+  }
+
+  // Uncollapse the nav
+  @media (min-width: $grid-float-breakpoint) {
+    float: left;
+    margin: 0;
+
+    > li {
+      float: left;
+      > a {
+        padding-top:    $navbar-padding-vertical;
+        padding-bottom: $navbar-padding-vertical;
+      }
+    }
+
+    &.navbar-right:last-child {
+      margin-right: -$navbar-padding-horizontal;
+    }
+  }
 }
 
-.input-group .btn{
-   margin-top:0px !important;
-} 
 
 
+
+
+// Navbar form
+//
+// Extension of the `.form-inline` with some extra flavor for optimum display in
+// our navbars.
+
+.navbar-form {
+  margin-left: -$navbar-padding-horizontal;
+  margin-right: -$navbar-padding-horizontal;
+  padding: 10px $navbar-padding-horizontal;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+  @include box-shadow($shadow);
+
+  // Mixin behavior for optimum display
+  @extend .form-inline;
+
+  .form-group {
+    @media (max-width: $grid-float-breakpoint-max) {
+      margin-bottom: 5px;
+    }
+  }
+
+  // Vertically center in expanded, horizontal navbar
+  @include navbar-vertical-align($input-height-base);
+
+  // Undo 100% width for pull classes
+  @media (min-width: $grid-float-breakpoint) {
+    width: auto;
+    border: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include box-shadow(none);
+
+    // Outdent the form if last child to line up with content down the page
+    &.navbar-right:last-child {
+      margin-right: -$navbar-padding-horizontal;
+    }
+  }
+}
+
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+  @include border-top-radius(0);
+}
+
+
+// Buttons in navbars
+//
+// Vertically center a button within a navbar (when *not* in a form).
+
+.navbar-btn {
+  @include navbar-vertical-align($input-height-base);
+
+  &.btn-sm {
+    @include navbar-vertical-align($input-height-small);
+  }
+  &.btn-xs {
+    @include navbar-vertical-align(22);
+  }
+}
+
+
+// Text in navbars
+//
+// Add a class to make any element properly align itself vertically within the navbars.
+
+.navbar-text {
+    @media (min-width: $grid-float-breakpoint) {
+    float: left;
+    margin-left: $navbar-padding-horizontal;
+    margin-right: $navbar-padding-horizontal;
+
+    // Outdent the form if last child to line up with content down the page
+    &.navbar-right:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Alternate navbars
+// --------------------------------------------------
+
+// Default navbar
+.navbar-default {
+  background-color: $navbar-default-bg;
+  border-color: $navbar-default-border;
+
+  .navbar-brand {
+    color: $navbar-default-brand-color;
+    &:hover,
+    &:focus {
+      color: $navbar-default-brand-hover-color;
+      background-color: $navbar-default-brand-hover-bg;
+    }
+  }
+
+  .navbar-text {
+    color: $navbar-default-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: $navbar-default-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-active-color;
+        background-color: $navbar-default-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-disabled-color;
+        background-color: $navbar-default-link-disabled-bg;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $navbar-default-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: $navbar-default-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: $navbar-default-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $navbar-default-border;
+  }
+
+  // Dropdown menu items
+  .navbar-nav {
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-default-link-active-bg;
+        color: $navbar-default-link-active-color;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: $navbar-default-link-color;
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-hover-color;
+            background-color: $navbar-default-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-active-color;
+            background-color: $navbar-default-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-disabled-color;
+            background-color: $navbar-default-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Links in navbars
+  //
+  // Add a class to ensure links outside the navbar nav are colored correctly.
+
+  .navbar-link {
+    color: $navbar-default-link-color;
+    &:hover {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+
+}
+
+.input-group{
+  padding-top: 25px;
+  padding-left:8%;
+  padding-right:8%;
+ }
