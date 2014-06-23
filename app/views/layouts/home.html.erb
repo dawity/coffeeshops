@@ -4,14 +4,30 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
 
-  <%= render "layouts/shim" %>
-
   <%= stylesheet_link_tag "application", media: "all",
                           "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>                        
-  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Krona+One" %>
+
+
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Julius+Sans+One|Signika:700" %>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="js/respond.js"></script>
+  <![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
 <body>
