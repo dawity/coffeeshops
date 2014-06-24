@@ -495,7 +495,7 @@ $gray-lighter:             #055c28 !default;
 
 
 .form-control {
-  padding-left: 45%;
+  //padding-left: ;
   height: 40px;
   font-family: 'Krona One','Julius Sans One','Raleway', Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -505,7 +505,7 @@ $gray-lighter:             #055c28 !default;
   background-color: #b4f788;
   background-image: none;
   border: 2px solid #cccccc;
-  border-radius: 2px;
+  border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
