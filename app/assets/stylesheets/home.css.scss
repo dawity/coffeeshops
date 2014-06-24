@@ -1,13 +1,3 @@
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-@import "bootstrap";
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 $navbar-height:                    80px !default;
 $border-radius-base:               1px;
 
@@ -41,6 +31,18 @@ $navbar-default-toggle-border-color:       #ddd !default;
 
 //$gray-lighter:           lighten(#000, 93.5%) !default;
 $gray-lighter:             #055c28 !default;
+
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@import "bootstrap";
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
 
 
 
@@ -168,8 +170,7 @@ $gray-lighter:             #055c28 !default;
   font-size: 30px;
   float: left;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
-  font-size: $font-size-large;
-  font-weight: 700;
+  font-weight: 800;
   height: $navbar-height;
   font-family: 'Krona One','Julius Sans One','Raleway', Helvetica, Arial, sans-serif;
   &:hover,
@@ -534,4 +535,143 @@ ul li, ol li {
   font-family: 'Glyphicons Halflings';
   src: url('/assets/glyphicons-halflings-regular.eot');
   src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+.container-wrapper-sub-footer {
+  margin-bottom: 0;
+  background: url(../img/pattern.jpg) 0 0 repeat #f3f3f3;
+  text-shadow: none;
+  h3, h4, p {
+    color: #333;
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+  }
+  .row {
+    margin-bottom: 0;
+  }
+  .list-tweets li {
+    margin: 0 10px 20px 0;
+    p {
+      font-style: italic;
+    }
+    a.btn {
+      font-style: normal;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .post {
+    margin: 0 20px 0 0;
+    padding: 0;
+    position: relative;
+    border: none;
+    .post-thumb {
+      margin-right: 10px;
+      display: block;
+      width: 20%;
+    }
+    .post-details {
+      width: 75%;
+      p {
+        color: #333;
+      }
+    }
+  }
+}
+
+footer {
+  margin-bottom: 0;
+  padding: 0;
+  background: #00050E;
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  text-shadow: 0 1px 0 #000;
+  .container {
+    padding: 80px 0;
+    text-align: center;
+    .row {
+      margin: 0 !important;
+    }
+  }
+  .col-md-12 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+  }
+  .list-circle-icons {
+    margin: 0 0 10px;
+    display: block;
+    li {
+      padding: 0;
+      height: auto;
+      width: auto;
+      background: none;
+      a {
+        padding: 10px;
+        height: 45px;
+        width: 45px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 36px;
+        background-color: #52525E;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -o-border-radius: 100%;
+        border-radius: 100%;
+        &:hover {
+          text-decoration: none;
+          background: #6A6A7A;
+        }
+      }
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  .list-inline {
+    margin: 0 0 20px;
+    padding: 0;
+    text-align: center;
+    li {
+      margin: 0 0 0 5px;
+      display: inline-block;
+      font-family: 'Raleway', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      list-style-type: none;
+      a {
+        color: #fff;
+        &:hover, &:focus {
+          color: #869baf;
+          text-decoration: none;
+        }
+      }
+      &:after {
+        margin-left: 10px;
+        position: relative;
+        content: "\b7";
+        color: #fff;
+      }
+      &:last-child:after {
+        margin: 0;
+        content: "";
+      }
+    }
+  }
 }
