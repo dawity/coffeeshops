@@ -12,7 +12,7 @@ $navbar-height:                    80px !default;
 $border-radius-base:               1px;
 
 
-$grid-gutter-width:                30px !default;
+$grid-gutter-width:                40px !default;
 
 $navbar-collapse-max-height:       340px !default;
 
@@ -165,6 +165,7 @@ $gray-lighter:             #055c28 !default;
 // Brand/project name
 
 .navbar-brand {
+  font-size: 30px;
   float: left;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
@@ -493,14 +494,14 @@ $gray-lighter:             #055c28 !default;
 
 
 .form-control {
-  padding-left: 95%;
+  padding-left: 45%;
   height: 40px;
   font-family: 'Krona One','Julius Sans One','Raleway', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.428571429;
-  color: #003300;
+  color: #610aa3;
   vertical-align: middle;
-  background-color: #66FF00;
+  background-color: #b4f788;
   background-image: none;
   border: 2px solid #cccccc;
   border-radius: 2px;
@@ -520,6 +521,14 @@ h1, h2, h3, h4 {
   margin-top: 0;
   line-height: 1.2;
   font-family: 'Krona One','Julius Sans One','Raleway', Helvetica, Arial, sans-serif;
+}
+
+ul li, ol li {
+  margin: 0px 0;
+  font-size: 15px;
+  font-family: 'Julius Sans One','Merriweather', Georgia, Times New Roman, serif;
+  line-height: 1.6;
+  color: #697b92;
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
