@@ -90,5 +90,5 @@ Ganjamap::Application.configure do
  #    :sender_address => %{"notifier" <dawityhaile@gmail.com>},
  #    :exception_recipients => %w{dawityhaile@gmail.com}
  #  }
- config.active_record.dump_schema_after_migration = false
+#config.active_record.dump_schema_after_migration = false
 end
