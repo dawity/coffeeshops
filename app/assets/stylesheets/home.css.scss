@@ -1,3 +1,11 @@
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@import "bootstrap";
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 
 $navbar-height:                    80px !default;
@@ -34,13 +42,8 @@ $navbar-default-toggle-border-color:       #ddd !default;
 //$gray-lighter:           lighten(#000, 93.5%) !default;
 $gray-lighter:             #055c28 !default;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-@import "bootstrap";
 
 //
 // Navbars
@@ -497,7 +500,7 @@ $gray-lighter:             #055c28 !default;
   line-height: 1.428571429;
   color: #003300;
   vertical-align: middle;
-  background-color: white;
+  background-color: #66FF00;
   background-image: none;
   border: 2px solid #cccccc;
   border-radius: 2px;
@@ -522,8 +525,4 @@ h1, h2, h3, h4 {
   font-family: 'Glyphicons Halflings';
   src: url('/assets/glyphicons-halflings-regular.eot');
   src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
-@font-face {
-  font-family: 'Krona One';
-    src:url('/assets/KronaOne-Regular.ttf') format('truetype');
 }
