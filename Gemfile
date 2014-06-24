@@ -61,5 +61,5 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 # used to notify errors and exceptions during production
 #gem 'exception_notification'
-# source "https://rubygems.org"
-# ruby "2.1.1"
+source "https://rubygems.org"
+ruby "2.1.1"
