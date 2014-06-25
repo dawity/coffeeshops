@@ -61,7 +61,7 @@ $gray-lighter:             #055c28 !default;
   position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: 0px;
-  border: 1px solid transparent;
+  border: 5px solid transparent;
 
   // Prevent floats from breaking the navbar
   @include clearfix();
@@ -181,7 +181,7 @@ $gray-lighter:             #055c28 !default;
   @media (min-width: $grid-float-breakpoint) {
     .navbar > .container &,
     .navbar > .container-fluid & {
-     margin-left:  30px; //margin-left: -$navbar-padding-horizontal;
+     margin-left:  40px; //margin-left: -$navbar-padding-horizontal;
     }
   }
 }
@@ -236,6 +236,8 @@ $gray-lighter:             #055c28 !default;
   > li > a {
     padding-top:    10px;
     padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
