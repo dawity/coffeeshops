@@ -6,18 +6,15 @@
 </script>
 <!-- The above is needed for the google API-->
 
-
-
 <!--    Navigation Markup start for home page here-->
 
 <%= render "nav_for_home" %>
 
 <!--container for google Map & left and right section-->
-
-
-  <div id="map" style='width: 100%; height: 550px;'>
-  </div>
-
+<div class="container-fluid">
+<div id="map" >
+</div>
+</div>
 
 <!--End of container for google Map-->
 
@@ -26,14 +23,13 @@
     <div class="col-md-4">
 
       <div class="panel panel-info">
-        <div class="panel-heading">
-          <%= will_paginate @ganjalocs, previous_label: h("<"), next_label: h(">") %>
+        <div class="panel-heading pagination-sm pagination">
+          <%= will_paginate @ganjalocs, :container => false %>
         </div>
         <div class="panel-body">
-          <%= render "table_for_home"%>
+          <%= render "table_for_home" %>
         </div>
       </div>
-
 
 
     </div>
@@ -49,19 +45,23 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="well">Cannabis, also known as marijuana[3] (from the Mexican Spanish marihuana[citation needed]), and by numerous other names,a[›] is a preparation of the Cannabis plant intended for use as a psychoactive drug and as medicine.[4][5][6] Pharmacologically, the principal psychoactive constituent of cannabis is tetrahydrocannabinol (THC); it is one of 483 known compounds in the plant,[7] including at least 84 other cannabinoids, such as cannabidiol (CBD), cannabinol (CBN), tetrahydrocannabivarin (THCV),[8][9] and cannabigerol (CBG).
+      <div class="well">Cannabis, also known as marijuana[3] (from the Mexican Spanish marihuana[citation needed]), and
+        by numerous other names,a[›] is a preparation of the Cannabis plant intended for use as a psychoactive drug and
+        as medicine.[4][5][6] Pharmacologically, the principal psychoactive constituent of cannabis is
+        tetrahydrocannabinol (THC); it is one of 483 known compounds in the plant,[7] including at least 84 other
+        cannabinoids, such as cannabidiol (CBD), cannabinol (CBN), tetrahydrocannabivarin (THCV),[8][9] and cannabigerol
+        (CBG).
 
-        Cannabis is often consumed for its psychoactive and physiological effects, which can include heightened mood or euphoria, relaxation,[10] and increase in appetite.[11] Unwanted side-effects can sometimes include a decrease in short-term memory, dry mouth, impaired motor skills, reddening of the eyes,[10] and feelings of paranoia or anxiety.[12]
+        Cannabis is often consumed for its psychoactive and physiological effects, which can include heightened mood or
+        euphoria, relaxation,[10] and increase in appetite.[11] Unwanted side-effects can sometimes include a decrease
+        in short-term memory, dry mouth, impaired motor skills, reddening of the eyes,[10] and feelings of paranoia or
+        anxiety.[12]
 
-        Contemporary uses of cannabis are as a recreational or medicinal drug, and as part of religious or spiritual rites; the earliest recorded uses date from the 3rd millennium BC.[13] Since the early 20th century cannabis has been subject to legal restrictions with the possession, use, and sale of cannabis preparations containing psychoactive cannabinoids currently illegal in most countries of the world; the United Nations has said that cannabis is the most-used illicit drug in the world.[14][15] In 2004, the United Nations estimated that global consumption of cannabis indicated that approximately 4% of the adult world population (162 million people) used cannabis annually, and that approximately 0.6% (22.5 million) of people used cannabis daily.[16]
-      </div>
+        Contemporary uses of cannabis are as a recreational or medicinal drug, and as part of religious or spiritual
+        rites..
     </div>
   </div>
 </div>
-
-
-
-
 
 <footer>
   <div class="container">
@@ -73,7 +73,8 @@
 
           <h4>Oslon de<span class="color">'</span> Techno</h4>
           <hr>
-          <p>Duis leo risus, vehicula luctus nunc.  Quiue rhoncus, a sodales enim arcu quis turpis. Duis leo risus, condimentum ut posuere ac, vehicula luctus nunc.  Quisque rhoncus, a sodales enim arcu quis turpis.</p>
+          <p>Duis leo risus, vehicula luctus nunc. Quiue rhoncus, a sodales enim arcu quis turpis. Duis leo risus,
+            condimentum ut posuere ac, vehicula luctus nunc. Quisque rhoncus, a sodales enim arcu quis turpis.</p>
 
           <div class="social">
             <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
@@ -100,7 +101,6 @@
       </div>
 
 
-
       <div class="col-md-4 col-sm-4">
         <div class="fwidget">
 
@@ -108,37 +108,24 @@
           <hr>
           <div class="address">
             <p><i class="fa fa-home color contact-icon"></i> Ganjamap </p>
+
             <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Hermosa Beach </p>
+
             <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ca, 90254 USA</p>
+
             <p><i class="fa fa-phone color contact-icon"></i> 310-000-000</p>
-            <p><i class="fa fa-envelope color contact-icon"></i> <a href="mailto:something@gmail.com">ganjamap@gmail.com</a></p>
+
+            <p><i class="fa fa-envelope color contact-icon"></i>
+              <a href="mailto:something@gmail.com">ganjamap@gmail.com</a></p>
           </div>
 
         </div>
       </div>
 
     </div>
-
-
-
     <hr>
-
     <div class="copy text-center">
       Copyright 2014 &copy; - <a href="http://Ganjamap.com">GanjaMap</a>
     </div>
   </div>
 </footer>
-<!-- <div class="footer-bottom">
-				<div class="container inner">
-					<p class="pull-left">© 2014 GanjaMap</p>
-					<ul class="footer-menu pull-right">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="portfolio.html">Portfolio</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="services.html">Services</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul><!-- .footer-menu
-				</div><!-- .container -->
-			<!-- </div>.footer-bottom
-		</footer> --> 
