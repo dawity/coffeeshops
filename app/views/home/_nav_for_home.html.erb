@@ -1,5 +1,5 @@
-<div class="navbar navbar-default " role="navigation">
-  <div class="container-fluid">
+<div class="navbar navbar-default container-fluid" role="navigation">
+  
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -25,20 +25,56 @@
 
             <li>
               <%= link_to signin_path, id: "Sign in" do %>
-                  <i class="fa fa-user"></i>
+                  <i class="fa fa-user fa-lg"></i>
               <% end %>
             </li>
         <% end %>
       </ul>
-    </div>
+    
 
   </div>
 </div>
-<div class="container navbar-collapse collapse nav-bottom">
-  <%= form_tag(@ganjaloc, method: "get", role: "search", class: "navbar-form navbar") do %>
 
-      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
 
-  <% end %>
-</div>
+
+<%= form_tag(@ganjaloc, method: "get", role: "form", class: "Ganjamap-form") do -%>
+  
+
+    <div class="container-fluid navbar-collapse collapse ">
+      
+      <div class="col-lg-12">
+        <div class="input-group">
+         
+          <%= search_field_tag 'search', params[:search], placeholder: "Search", class: "form-control" %>
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default" tabindex="-1"><i class="fa fa-search"></i></button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">lounge/a></li>
+              <li><a href="#">strain</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Delivery</a></li>
+            </ul>
+          </div>
+        </div><!-- /.input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  <%end-%>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
