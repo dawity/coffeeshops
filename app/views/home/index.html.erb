@@ -12,17 +12,15 @@
 
 <!--container for google Map & left and right section-->
 <div class="container-fluid">
-<div id="map" style='width: 100%; height: 400px';>
-</div>
+<div id="map" style='width: 100%; height: 400px;'></div>
 </div>
 
 <!--End of container for google Map-->
 
-<div id="bootom-Ganjamap">
-  
-    <div class="col-md-4">
+<div class="row bootom-Ganjamap">
 
-      <div class="panel panel-info">
+    <div class="col-md-4">
+      <div class="panel">
         <div class="panel-heading pagination-sm pagination">
           <%= will_paginate @ganjalocs, :container => false %>
         </div>
@@ -30,12 +28,11 @@
           <%= render "table_for_home" %>
         </div>
       </div>
-
-
     </div>
     <div class="col-md-4">
-      <div class="panel panel-info">
+      <div class="panel panel">
         <div class="panel-heading">
+          <h4> Marley and Ganja</h4>
         </div>
         <div class="panel-body">
           <iframe width="100%" height="415" src="//www.youtube.com/embed/eG8UH_AMzU4" frameborder="0" allowfullscreen>
@@ -52,82 +49,8 @@
         cannabinoids, such as cannabidiol (CBD), cannabinol (CBN), tetrahydrocannabivarin (THCV),[8][9] and cannabigerol
         (CBG).
 
-        Cannabis is often consumed for its psychoactive and physiological effects, which can include heightened mood or
-        euphoria, relaxation,[10] and increase in appetite.[11] Unwanted side-effects can sometimes include a decrease
-        in short-term memory, dry mouth, impaired motor skills, reddening of the eyes,[10] and feelings of paranoia or
-        anxiety.[12]
-
-        Contemporary uses of cannabis are as a recreational or medicinal drug, and as part of religious or spiritual
-        rites..
     </div>
   </div>
 </div>
- <div class="container-fluid">
-<footer>
- 
 
-   
-
-      <div class="col-md-4 col-sm-4">
-        <div class="fwidget">
-
-          <h4>Oslon de<span class="color">'</span> Techno</h4>
-          <hr>
-          <p>Duis leo risus, vehicula luctus nunc. Quiue rhoncus, a sodales enim arcu quis turpis. Duis leo risus,
-            condimentum ut posuere ac, vehicula luctus nunc. Quisque rhoncus, a sodales enim arcu quis turpis.</p>
-
-          <div class="social">
-            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-            <a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a>
-            <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-4">
-        <div class="fwidget">
-          <h4>Categories</h4>
-          <hr>
-          <ul>
-            <li><a href="#">Sed eu leo orci, condimentum gravida metus</a></li>
-            <li><a href="#">Etiam at nulla ipsum, in rhoncus purus</a></li>
-            <li><a href="#">Fusce vel magna faucibus felis dapibus facilisis</a></li>
-            <li><a href="#">Vivamus scelerisque dui in massa</a></li>
-            <li><a href="#">Pellentesque eget adipiscing dui semper</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-      <div class="col-md-4 col-sm-4">
-        <div class="fwidget">
-
-          <h4>Get In Touch</h4>
-          <hr>
-          <div class="address">
-            <p><i class="fa fa-home color contact-icon"></i> Ganjamap </p>
-
-            <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Hermosa Beach </p>
-
-            <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ca, 90254 USA</p>
-
-            <p><i class="fa fa-phone color contact-icon"></i> 310-000-000</p>
-
-            <p><i class="fa fa-envelope color contact-icon"></i>
-              <a href="mailto:something@gmail.com">ganjamap@gmail.com</a></p>
-          </div>
-
-        </div>
-      </div>
-      </footer>
-
- 
-    <hr>
-    <div class="copy text-center">
-      Copyright 2014 &copy; - <a href="http://Ganjamap.com">GanjaMap</a>
-    </div>
-
-</footer>
-   </div>
+<%= render 'footer_for_home' %>
