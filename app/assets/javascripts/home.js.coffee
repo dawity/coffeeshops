@@ -1,4 +1,4 @@
 
-$("#map").on "shown", ->
-  google.maps.event.trigger map, "resize"
+$(window).load ->
+  $("#toggle").toggle "slide"
   return
