@@ -8,7 +8,7 @@ class GanjalocsController < ApplicationController
     def index
       # BEGIN Simple search functionality was implemented by Dawit Haile
         if params[:search].present?
-        @ganjalocs = Ganjaloc.near(params[:search], 10).order("created_at DESC")
+        @ganjalocs = Ganjaloc.near(params[:search], 5).order("created_at DESC")
         @ganjalocs if @ganjalocs.present?
 
         else
