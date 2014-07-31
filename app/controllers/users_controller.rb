@@ -1,3 +1,14 @@
+
+#---
+#       CS81 Project Summer 2014
+#  Auth: DAWIT HAILE ACHAMYELHE
+#  
+# 
+# 
+# 
+#---
+
+
 class UsersController < ApplicationController
     before_action :signed_in_user, only: [:index, :edit, :update]
     before_action :set_user, only: [:show, :edit, :update, :destroy]

@@ -1,4 +1,4 @@
-Ganjaloc.create!([
+CofeeLoc.create!([
   {latitude: 34.07471719999999, longitude: -118.1667513, address: "5359 East Valley Boulevard, Los Angeles, California, United States", description: " Around CSULA", title: "Green Bear"},
   {latitude: 34.0887464, longitude: -118.1712799, address: "5120 Huningtion Dr. South, Los Angeles, CA 90032", description: "Its pass Food4less", title: "No name yet"},
   {latitude: 34.256979, longitude: -118.465273, address: "15300 Devonshire 91345", description: "", title: "420 For The People Cooperative Inc "},

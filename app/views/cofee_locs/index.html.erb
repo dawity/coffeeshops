@@ -1,0 +1,45 @@
+<!--
+#       CS81 Project
+#  Auth: DAWIT HAILE ACHAMYELHE
+#  
+#  Summer 2014
+# 
+# 
+# -->
+
+
+<h1>Listing cofee_locs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cofee_locs.each do |cofee_loc| %>
+      <tr>
+        <td><%= cofee_loc.latitude %></td>
+        <td><%= cofee_loc.longitude %></td>
+        <td><%= cofee_loc.address %></td>
+        <td><%= cofee_loc.description %></td>
+        <td><%= cofee_loc.title %></td>
+        <td><%= link_to 'Show', cofee_loc %></td>
+        <td><%= link_to 'Edit', edit_cofee_loc_path(cofee_loc) %></td>
+        <td><%= link_to 'Destroy', cofee_loc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cofee loc', new_cofee_loc_path %>

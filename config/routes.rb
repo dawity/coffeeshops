@@ -1,5 +1,11 @@
 Ganjamap::Application.routes.draw do
-  resources :ganjalocs
+  resources :products
+
+  resources :carts
+
+  resources :line_items
+
+  resources :cofee_locs
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   post 'incoming_emails' => 'incoming_emails#create'

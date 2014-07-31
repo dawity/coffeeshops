@@ -4,7 +4,15 @@
 <script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript">
 
 </script>
-<!-- The above is needed for the google API-->
+<!--
+#       CS81 Project
+#  Auth: DAWIT HAILE ACHAMYELHE
+#  
+#  Summer 2014
+# 
+# 
+# -->
+<!--The above is needed for the google API-->
 
 <!--    Navigation Markup start for home page here-->
 
@@ -13,42 +21,43 @@
 
 <!--container for google Map & left and right section-->
 <div class="container-fluid">
-<div id="map" style='width: 100%; height: 500px;'></div>
+  <div id="map" style='width: 100%; height: 500px;'></div>
 </div>
 
 <!--End of container for google Map-->
 
 <div class="row bootom-Ganjamap">
 
-    <div class="col-md-4">
-      <div class="panel">
-        <div class="panel-heading pagination-sm pagination">
-          <%= will_paginate @ganjalocs, :container => false %>
-        </div>
-        <div class="panel-body">
-          <%= render "table_for_home" %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel">
-        <div class="panel-heading">
-          <h4> Marley and Ganja</h4>
-        </div>
-        <div class="panel-body">
-          <iframe width="100%" height="415" src="//www.youtube.com/embed/eG8UH_AMzU4" frameborder="0" allowfullscreen>
+  <div class="col-md-4">
+    <div class="panel">
 
-          </iframe>
-        </div>
+      <div class="panel-body">
+        <%= render "table_for_home" %>
+      </div>
+      <div class="panel-heading pagination-sm pagination">
+        <%= will_paginate @coffeshoplocs, :container => false %>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="well"><p>Cannabis, also known as marijuana[3] (from the Mexican Spanish marihuana[citation needed]), and
-        by numerous other names,a[›] is a preparation of the Cannabis plant intended for use as a psychoactive drug and
-        as medicine.[4][5][6] Pharmacologically, the principal psychoactive constituent of cannabis is
-        tetrahydrocannabinol (THC); it is one of 483 known compounds in the plant,[7] including at least 84 other
-        cannabinoids, such as cannabidiol (CBD), cannabinol (CBN), tetrahydrocannabivarin (THCV),[8][9] and cannabigerol
-        (CBG).</p>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel">
+      <div class="panel-heading">
+        <h4> Making Coffee in Ethiopia </h4>
+      </div>
+      <div class="panel-body">
+        <iframe width="400" height="415" src="//www.youtube.com/embed/qQpdhyqjklM" style="border:none;" allowfullscreen>
+
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="well">
+      <p>According to legend, ancestors of today's Oromo people were believed to have been the first to recognize the
+        energizing effect of the coffee plant,[5] though no direct evidence has been found indicating where in Africa
+        coffee grew or who among the native populations might have used it as a stimulant or even known about it,
+        earlier than the 17th century.[5] The story of Kaldi, the 9th-century Ethiopian goatherder who discovered coffee
+        when noticed how excited his goats became after eating the beans from a coffee plant</p>
 
     </div>
   </div>
@@ -59,11 +68,21 @@
     <div class="row">
       <div class="col-md-12">
         <ul class="unstyled center list-circle-icons list-circle-icons-small">
-          <li><a href="#none" title="Like us on Facebook" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-facebook"></span></a></li>
-          <li><a href="#none" title="Follow us on Twitter" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-twitter"></span></a></li>
-          <li><a href="#none" title="Follow us on Pinterest" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-pinterest"></span></a></li>
-          <li><a href="#none" title="Follow us on Google Plus" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-google-plus"></span></a></li>
-          <li><a href="#none" title="View Flickr Gallery" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-flickr"></span></a></li>
+          <li>
+            <a href="#none" title="Like us on Facebook" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-facebook"></span></a>
+          </li>
+          <li>
+            <a href="#none" title="Follow us on Twitter" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-twitter"></span></a>
+          </li>
+          <li>
+            <a href="#none" title="Follow us on Pinterest" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-pinterest"></span></a>
+          </li>
+          <li>
+            <a href="#none" title="Follow us on Google Plus" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-google-plus"></span></a>
+          </li>
+          <li>
+            <a href="#none" title="View Flickr Gallery" data-rel="tooltip" data-toggle="tooltip"><span class="fa fa-flickr"></span></a>
+          </li>
         </ul>
         <ul class="list-inline">
           <li><a href="index.html">Home</a></li>
@@ -74,9 +93,12 @@
           <li><a href="user-signup.html">Sign Up</a></li>
           <li><a href="user-login.html">Login</a></li>
         </ul>
-        <p>&copy;2014. GanjaMap. ALL RIGHTS RESERVED</p>
+        <p>&copy;2014. CofeeMap. ALL RIGHTS RESERVED</p>
 
-      </div><!-- end col -->
-    </div><!-- end row fluid -->
-  </div><!-- end container -->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row fluid -->
+  </div>
+  <!-- end container -->
 </footer>
