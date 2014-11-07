@@ -25,4 +25,4 @@ def secure_token
 end
 
 
-Ganjamap::Application.config.secret_key_base = secure_token
+Ganjamap::Application.config.secret_key_base ="13a4a0ade8a79a052236dc554e51de8935b85bbc25535c867036dbdc56fe8c0ba9573c852fed0e1c68b824dfad6c0fffc50668cfe76bdde323d2d5c3b1b11ae2"

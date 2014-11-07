@@ -6,7 +6,7 @@ GIT
       actionpack (>= 4.0.0, < 5)
       activerecord (>= 4.0.0, < 5)
       railties (>= 4.0.0, < 5)
-# DAwit Haile
+
 GEM
   remote: https://rubygems.org/
   remote: https://rubygems.org/
