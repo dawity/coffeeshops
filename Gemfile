@@ -58,7 +58,8 @@ gem 'will_paginate', '> 3.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'annotate'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
-
+# compass rails
+gem 'compass-rails'
 # used to notify errors and exceptions during production
 #gem 'exception_notification'
 source "https://rubygems.org"
