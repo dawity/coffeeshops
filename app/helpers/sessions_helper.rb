@@ -1,3 +1,4 @@
+# * Created by Dawit Haile Achamyelhe for CS83 - Server-Side Ruby Web Programming*
 module SessionsHelper
   
 	def sign_in(user)

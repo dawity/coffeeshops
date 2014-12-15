@@ -1,3 +1,5 @@
+# * Created by Dawit Haile Achamyelhe for CS83 - Server-Side Ruby Web Programming*
+#
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 

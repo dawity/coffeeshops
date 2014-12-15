@@ -1,3 +1,4 @@
+# * Created by Dawit Haile Achamyelhe for CS83 - Server-Side Ruby Web Programming*
 module UsersHelper
 	def gravatar_for(user)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
