@@ -15,7 +15,9 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Profile", current_user %></li>
 
-          <li><a href="#">Publications</a></li>
+          <li><a href="#"><i class="fa fa-coffee"></i>
+          </a></li>
+
 
           <li><%= link_to signout_path, method: "delete" do %>
                 <i class="fa fa-sign-out"></i>
@@ -24,6 +26,8 @@
         </ul>
     <% else %>
         <ul class="nav navbar-nav">
+          <li><%= link_to "SIGNUP", signup_path%>
+          </li>
           <li>
             <%= link_to signin_path, id: "Signin" do %>
                 <i class="fa fa-user fa-lg"></i>

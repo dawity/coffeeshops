@@ -62,4 +62,4 @@ gem 'compass-rails'
 # used to notify errors and exceptions during production
 #gem 'exception_notification'
 source "https://rubygems.org"
-ruby "2.1.1"
+ruby "2.1.4"
